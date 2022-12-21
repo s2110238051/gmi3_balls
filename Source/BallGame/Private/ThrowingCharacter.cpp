@@ -32,7 +32,7 @@ void AThrowingCharacter::Tick(float DeltaTime)
 		ShootingTime += DeltaTime;
 		
 		// We clamp ShootingTime at 3 (seconds) so we can't scale up the strength infinitely.
-		ShootingTime = FMath::Min(ShootingTime, 3.f);	
+		ShootingTime = FMath::Min(ShootingTime, MaxShootingTime);
 		ShootingStrength = ForceMultiplier * ShootingTime;
 
 		// Fire the event so that we can use it to update
