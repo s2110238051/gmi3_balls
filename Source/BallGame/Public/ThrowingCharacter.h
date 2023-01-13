@@ -6,9 +6,12 @@
 #include "GameFramework/Character.h"
 #include "ThrowingCharacter.generated.h"
 
+
 class UBillboardComponent;
 class ABall;
 class UPhysicsHandleComponent;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FBallShot);
 
 UCLASS()
 class BALLGAME_API AThrowingCharacter : public ACharacter
@@ -86,7 +89,8 @@ private:
 	bool bIsShooting = false; 
 
 	
-
+	UPROPERTY(BlueprintAssignable)
+	FBallShot OnBallShot;
 	
 
 	

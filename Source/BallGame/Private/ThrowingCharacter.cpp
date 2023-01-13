@@ -7,7 +7,6 @@
 #include "Ball.h"
 #include "Components/SphereComponent.h"
 
-
 AThrowingCharacter::AThrowingCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -20,6 +19,8 @@ void AThrowingCharacter::BeginPlay()
 
 	Billboard = this->FindComponentByClass<UBillboardComponent>();
 	PhysicsHandle = this->FindComponentByClass<UPhysicsHandleComponent>();
+
+	SpawnAndGrabBall();
 }
 
 void AThrowingCharacter::Tick(float DeltaTime)
@@ -113,7 +114,12 @@ void AThrowingCharacter::ShootBall()
 	// Apply an impulse to the ball so it is thrown away by the physics system
 	BallMesh->AddImpulse(GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetActorForwardVector() * ShootingStrength);
 	
+	OnBallShot.Broadcast();
+
+	Ball->bWasShot = true;
+
 	// Ball variable now stores nullptr because we are not holding the ball anymore
 	Ball = nullptr;
-	
 }
+
+
