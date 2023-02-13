@@ -5189,30 +5189,6 @@
 					}
 				}
 			}
-		},
-		"/Engine/Transient":
-		{
-			"graphData":
-			{
-				"E9CB28814C51B471BBEC75AC8CE5310F":
-				{
-					"nodeData":
-					{
-					}
-				},
-				"6EC08CFE4B3A74C85A80079F204E4777":
-				{
-					"nodeData":
-					{
-					}
-				},
-				"02D2739F4F768AE78C5AA8A3403A64EA":
-				{
-					"nodeData":
-					{
-					}
-				}
-			}
 		}
 	},
 	"bookmarkedFolders": [],
